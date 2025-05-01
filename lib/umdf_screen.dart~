@@ -62,9 +62,9 @@ class UmdfScreen extends StatelessWidget {
                 final bloc = context.read<AppBloc>();
                 return state.filepath != null ? const CircularProgressIndicator() : ElevatedButton(
                   onPressed: () {
-                    bloc.add(const DownloadFileEvent());
+                    bloc.add(const PickFileEvent());
                   },
-                  child: const Text('Download File'),
+                  child: const Text('Pick File'),
                 );
               },
             ),

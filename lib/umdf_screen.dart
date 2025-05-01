@@ -20,7 +20,7 @@ class UmdfScreen extends StatelessWidget {
             BlocConsumer<AppBloc, AppState>(
               listenWhen: (previous, current) => previous.uploadStatus != current.uploadStatus,
               listener: (context, state) {
-                if (state.isError) {
+                if (state.isUploadError) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.errorMessage!)));
                 }
               },
@@ -39,7 +39,7 @@ class UmdfScreen extends StatelessWidget {
             BlocConsumer<AppBloc, AppState>(
               listenWhen: (previous, current) => previous.downloadStatus != current.downloadStatus,
               listener: (context, state) {
-                if (state.isError) {
+                if (state.isDownloadError) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.errorMessage!)));
                 }
               },

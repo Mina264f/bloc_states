@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 import 'app_events.dart';
 import 'app_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,7 +20,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
       await Future.delayed(Duration(seconds: 5));
       emit(state.copyWith(downloadStatus: DownloadStatus.loaded));
     } catch (e) {
-      emit(state.copyWith(errorMessage: e.toString()));
+      emit(state.copyWith(errorMessage: e.toString(), downloadStatus: DownloadStatus.error));
     }
   }
 
@@ -30,13 +29,14 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     Emitter<AppState> emit,
   ) async {
     try {
-      log(state.filepath.toString());
-      if (state.filepath == null) return;
-      emit(state.copyWith(uploadStatus: UploadStatus.loading));
-      await Future.delayed(Duration(seconds: 5));
-      emit(state.copyWith(uploadStatus: UploadStatus.loaded));
+      throw Exception('error');
+      // log(state.filepath.toString());
+      // if (state.filepath == null) return;
+      // emit(state.copyWith(uploadStatus: UploadStatus.loading));
+      // await Future.delayed(Duration(seconds: 5));
+      // emit(state.copyWith(uploadStatus: UploadStatus.loaded));
     } catch (e) {
-      emit(state.copyWith(errorMessage: e.toString()));
+      emit(state.copyWith(errorMessage: e.toString(), uploadStatus: UploadStatus.error));
     }
   }
 

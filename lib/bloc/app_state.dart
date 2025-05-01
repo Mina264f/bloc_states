@@ -19,7 +19,8 @@ enum UploadStatus {
 extension AppStausX on AppState {
   bool get isDownloadLoading => downloadStatus == DownloadStatus.loading ;
   bool get isUploadLoading => uploadStatus == UploadStatus.loading ;
-  bool get isError => downloadStatus == DownloadStatus.error || uploadStatus == UploadStatus.error;
+  bool get isDownloadError => downloadStatus == DownloadStatus.error ;
+  bool get isUploadError => uploadStatus == UploadStatus.error ;
   bool get isDownloadSuccess => downloadStatus == DownloadStatus.loaded ;
   bool get isUploadSuccess => uploadStatus == UploadStatus.loaded ;
 }
