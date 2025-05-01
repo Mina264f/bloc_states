@@ -1,0 +1,12 @@
+sealed class AppEvent {}
+
+
+
+class DownloadFileEvent extends AppEvent {}
+
+
+
+class UploadFileEvent extends AppEvent {}
+
+
+class PickFileEvent extends AppEvent {}
