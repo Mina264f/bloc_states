@@ -46,7 +46,7 @@ class AppState {
       downloadStatus: downloadStatus ?? this.downloadStatus,
       uploadStatus: uploadStatus ?? this.uploadStatus,
       errorMessage: errorMessage ?? this.errorMessage,
-      filepath: filepath ?? this.filepath
+      filepath: filepath
     );
   }
 

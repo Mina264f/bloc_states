@@ -18,3 +18,8 @@ class UploadFileEvent extends AppEvent {
 class PickFileEvent extends AppEvent {
   const PickFileEvent();
 }
+
+
+class ClearFileEvent extends AppEvent {
+  const ClearFileEvent();
+}
