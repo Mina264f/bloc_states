@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:validform/bloc/app_bloc.dart';
+import 'package:validform/extentions.dart';
 
 import 'bloc/app_events.dart';
 import 'bloc/app_state.dart';
@@ -76,7 +77,7 @@ class UmdfScreen extends StatelessWidget {
                   (previous, current) => previous.filepath != current.filepath,
               builder: (context, state) {
                 final bloc = context.read<AppBloc>();
-                return state.filepath != null
+                return !state.filepath.isNullOrEmpty
                     ? Container(
                   color: Colors.grey,
                       child: Row(
@@ -91,8 +92,6 @@ class UmdfScreen extends StatelessWidget {
                           ElevatedButton(
                             onPressed: () {
                               bloc.add(const ClearFileEvent());
-                              print(state.filepath);
-                              print('llllllllllllllllllllll');
                             },
                             child: const Text('Clear File'),
                           ),
